@@ -1,0 +1,67 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated manuscript and this software release."
+title: "Bat Anal-Swab Viral Discovery, Diversity, and Spatial Prioritization for Coronavirus Surveillance"
+type: software
+version: 1.0.0
+authors:
+  - family-names: Xu
+    given-names: Panpan
+  - family-names: Wu
+    given-names: Zhiqiang
+    email: zqwu_lab@163.com
+license: MIT
+date-released: 2026-07-02
+url: "https://github.com/PanpanXu1/bat-anal-swab-viral-diversity"
+abstract: "Reproducible code and public analysis-ready data for bat anal-swab viral discovery, viral diversity, host-virus sharing, environmental associations, and spatial prioritization of bat coronavirus surveillance across China and mainland Southeast Asia."
+keywords:
+  - bat anal swabs
+  - bat-associated viruses
+  - viral discovery
+  - viral diversity
+  - metatranscriptomics
+  - host-virus sharing
+  - coronavirus surveillance
+  - spatial prioritization
+  - viral ecology
+  - reproducible research
+preferred-citation:
+  type: unpublished
+  title: "Novel Bat RNA Virus Discovery and Integrated Spatial Prioritization Highlight Mountain Landscapes for Bat Coronavirus Surveillance"
+  year: 2026
+  authors:
+    - family-names: Xu
+      given-names: Panpan
+    - family-names: Han
+      given-names: Yelin
+    - family-names: Zhao
+      given-names: Kun
+    - family-names: Zhao
+      given-names: Wenliang
+    - family-names: Dong
+      given-names: Shixuan
+    - family-names: Liu
+      given-names: Bo
+    - family-names: Zhang
+      given-names: Xingyu
+    - family-names: Wang
+      given-names: Yuyang
+    - family-names: Zhao
+      given-names: Lamei
+    - family-names: Yu
+      given-names: Xiujuan
+    - family-names: Tang
+      given-names: Qing
+    - family-names: Zhang
+      given-names: Junpeng
+    - family-names: Zhu
+      given-names: Guangjian
+    - family-names: Zhang
+      given-names: Shuyi
+    - family-names: Yang
+      given-names: Jian
+    - family-names: Jin
+      given-names: Qi
+    - family-names: Holmes
+      given-names: Edward C.
+    - family-names: Wu
+      given-names: Zhiqiang

@@ -1,0 +1,30 @@
+"term","role","model_form","term_type","estimate","std_error","edf","statistic","p_value"
+"(Intercept)","intercept","intercept","parametric",2.09130961453869,0.887347516371043,,2.356810129014,0.0194559162097474
+"log10_pool_size","pool sample size","linear fixed effect","parametric",2.08899026132493,0.329353472348426,,6.34269997650115,1.62530154727378e-09
+"seasonSpring","sampling season","categorical fixed effect","parametric",0.142640455594292,0.689286846803099,,0.206939181062073,0.836280142209621
+"seasonSummer","sampling season","categorical fixed effect","parametric",0.22607865906503,0.703186219599705,,0.321506100039514,0.74818217827018
+"seasonWinter","sampling season","categorical fixed effect","parametric",-0.0107438153918607,1.17208600838792,,-0.00916640529361638,0.992696037646167
+"factor(year)2022","sampling year","categorical fixed effect","parametric",-0.581908710273659,1.28677509589912,,-0.452222546215083,0.651627277484645
+"factor(year)2023","sampling year","categorical fixed effect","parametric",0.743051992867178,0.596963528709742,,1.24471924519943,0.214776240154624
+"factor(year)2024","sampling year","categorical fixed effect","parametric",1.43719799393502,1.22993858419398,,1.16851199922057,0.244072130284234
+"landuse_broadClosed_or_other_forest","land-use category","categorical fixed effect","parametric",0.161978784728958,0.451386216655309,,0.358847432093057,0.720109783493042
+"landuse_broadCropland","land-use category","categorical fixed effect","parametric",0.834145663145215,0.448097752722527,,1.8615261024568,0.0642226551563888
+"landuse_broadOpen_vegetation","land-use category","categorical fixed effect","parametric",-0.346003096340418,0.568610775084927,,-0.608506049307172,0.543582533493735
+"landuse_broadOther_or_unclassified","land-use category","categorical fixed effect","parametric",0.655436102141893,0.486439661294667,,1.34741501216706,0.179459736818717
+"landuse_broadSparse_woodland","land-use category","categorical fixed effect","parametric",0.29378966766507,0.618312899051871,,0.47514724036256,0.635230675354528
+"Mean Diurnal Range (Mean of monthly max temp - min temp) (Bio2)","environmental predictor","environmental linear fixed effect","parametric",-0.0437174691537678,0.558424408651831,,-0.0782871745511844,0.937682442861964
+"Temperature Seasonality (standard deviation x100) (Bio4)","environmental predictor","environmental linear fixed effect","parametric",-0.580611187738381,1.15961587438383,,-0.50069268674585,0.617170003078677
+"Max Temperature of Warmest Month (Bio5)","environmental predictor","environmental linear fixed effect","parametric",-0.0803159689325712,0.552292749836075,,-0.145422819612261,0.884532025307943
+"Mean Temperature of Wettest Quarter (Bio8)","environmental predictor","environmental linear fixed effect","parametric",-0.354505848627946,0.451531541272354,,-0.78511868213901,0.43336706580857
+"Precipitation of Driest Quarter (Bio17)","environmental predictor","environmental linear fixed effect","parametric",-0.0588379224612751,0.452999530257363,,-0.129885173231521,0.896795408695322
+"Human Footprint (HFT)","environmental predictor","environmental linear fixed effect","parametric",0.0385135997313781,0.327738574617384,,0.117513172736351,0.906578196897394
+"Global Mammal Richness (GMR)","environmental predictor","environmental linear fixed effect","parametric",-0.0661353397682994,0.499413663701369,,-0.132425971844947,0.89478825421391
+"China High-Resolution Ecological Environment Quality (CHEQ)","environmental predictor","environmental linear fixed effect","parametric",-0.14508150869944,0.245280845411099,,-0.591491392066422,0.554898037563565
+"Normalized Difference Vegetation Index (NDVI)","environmental predictor","environmental linear fixed effect","parametric",0.191809729302912,0.171516210468969,,1.11831837223114,0.264850488061181
+"Fractional Vegetation Cover (FVC)","environmental predictor","environmental linear fixed effect","parametric",-0.250924733828228,0.126235147448951,,-1.98775649174649,0.0482824684669475
+"China Population Spatial Distribution (PSD)","environmental predictor","environmental linear fixed effect","parametric",0.0151801550882557,0.118947715270962,,0.127620400725439,0.898585072596443
+"Global Railway (GR)","environmental predictor","environmental linear fixed effect","parametric",0.0692730081770091,0.286882429016631,,0.2414682851594,0.809453975809345
+"Global Linear Hydrography (GLH)","environmental predictor","environmental linear fixed effect","parametric",-0.469097952628759,0.222662336937169,,-2.10676829804912,0.0364572532765989
+"s(terrain)","terrain background","random-effect smooth","smooth",,,0.00105389363917387,0.000223373115085131,0.551804905502124
+"s(host_genus)","host-genus background","random-effect smooth","smooth",,,4.13737123061515,0.845583089556256,0.007508754225801
+"s(longitude,latitude)","spatial structure","two-dimensional smooth","smooth",,,5.866924018767,0.756894084785878,0.674682107311781

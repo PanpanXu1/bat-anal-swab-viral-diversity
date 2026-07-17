@@ -1,0 +1,5 @@
+﻿threshold_name,source_column,quantile,threshold_value,n_hosts,calculation_basis,rule
+CRS_P90,EWM_CRS,0.9,0.2927,229,Full host-level EWM_CRS distribution after taxonomic harmonization.,EWM_CRS >= CRS_P90
+ZSN_min_sequence_evidence,Zoonotic Sequence Number,,2.0,229,Minimum repeated sequence-evidence floor applied to the raw zoonotic sequence count.,Zoonotic Sequence Number >= 2
+VD_P90,VD_norm,0.9,0.333333,229,Full host-level normalized viral-diversity distribution.,Used in Path A with ZSC_norm = 1.00 and the minimum repeated zoonotic-sequence evidence floor.
+VD_P95,VD_norm,0.95,0.583333,229,Full host-level normalized viral-diversity distribution.,Used in Path B with ZSC_norm = 0.50 and the minimum repeated zoonotic-sequence evidence floor.

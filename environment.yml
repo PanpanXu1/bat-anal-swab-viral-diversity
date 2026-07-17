@@ -1,0 +1,19 @@
+name: manuscript_analysis_reproducibility
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - matplotlib>=3.8
+  - numpy>=1.26
+  - openpyxl>=3.1
+  - pandas>=2.2
+  - reportlab>=4.0
+  - r-base>=4.3
+  - r-dplyr
+  - r-emmeans
+  - r-ggplot2
+  - r-inext
+  - r-mgcv
+  - r-readr
+  - r-tibble
+  - r-tidyr

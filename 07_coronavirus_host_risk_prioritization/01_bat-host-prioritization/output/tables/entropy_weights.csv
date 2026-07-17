@@ -1,0 +1,5 @@
+﻿indicator,entropy,redundancy,weight
+VD_norm,0.824752,0.175248,0.205669
+ZSC_norm,0.784161,0.215839,0.253306
+ZSN_corrected_norm,0.629678,0.370322,0.434605
+VS_ln_norm,0.909321,0.090679,0.10642

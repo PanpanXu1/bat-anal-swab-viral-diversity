@@ -1,0 +1,14 @@
+variable,selected_form,selected_k,model_form_source
+Mean Diurnal Range (Mean of monthly max temp - min temp) (Bio2),linear,,workflow_04_seven_criterion_assessment
+Temperature Seasonality (standard deviation x100) (Bio4),linear,,workflow_04_seven_criterion_assessment
+Max Temperature of Warmest Month (Bio5),linear,,workflow_04_seven_criterion_assessment
+Mean Temperature of Wettest Quarter (Bio8),linear,,workflow_04_seven_criterion_assessment
+Precipitation of Driest Quarter (Bio17),linear,,workflow_04_seven_criterion_assessment
+Human Footprint (HFT),linear,,workflow_04_seven_criterion_assessment
+Global Mammal Richness (GMR),linear,,workflow_04_seven_criterion_assessment
+China High-Resolution Ecological Environment Quality (CHEQ),linear,,workflow_04_seven_criterion_assessment
+Normalized Difference Vegetation Index (NDVI),linear,,workflow_04_seven_criterion_assessment
+Fractional Vegetation Cover (FVC),linear,,workflow_04_seven_criterion_assessment
+China Population Spatial Distribution (PSD),linear,,workflow_04_seven_criterion_assessment
+Global Railway (GR),linear,,workflow_04_seven_criterion_assessment
+Global Linear Hydrography (GLH),linear,,workflow_04_seven_criterion_assessment

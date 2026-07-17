@@ -1,0 +1,22 @@
+﻿Virus order,Amino acid identity ≤50%,50% < Amino acid identity <90%,Amino acid identity ≥90%
+Amarillovirales,1,2,24
+Bunyavirales,12,16,5
+Durnavirales,26,139,12
+Ghabrivirales,20,27,20
+Hepelivirales,7,11,31
+Jingchuvirales,3,17,8
+Martellivirales,2,0,8
+Mononegavirales,10,46,19
+Nidovirales,0,1,299
+Nodamuvirales,29,83,36
+Norzivirales,0,1,4
+Ourlivirales,1,0,0
+Permutotetraviridae,46,105,265
+Picornavirales,609,866,904
+Reovirales,5,1,2
+Sobelivirales,177,343,40
+Stellavirales,2,45,53
+Tolivirales,126,184,18
+Tymovirales,8,14,8
+Wolframvirales,19,1,0
+No_Taxonomy,370,571,194

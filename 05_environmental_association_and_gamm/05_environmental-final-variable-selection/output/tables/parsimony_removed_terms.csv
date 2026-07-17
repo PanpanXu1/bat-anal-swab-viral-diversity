@@ -1,0 +1,2 @@
+variable,reason,preliminary_delta_deviance_explained,preliminary_delta_AIC,preliminary_p_value,p_value_threshold
+Precipitation of Warmest Quarter (Bio18),Removed by the predefined parsimony rule: negative conditional deviance contribution and no statistical support in the preliminary adjusted model.,-0.0007737527384025,-2.13327819460483,0.833079373649838,0.05

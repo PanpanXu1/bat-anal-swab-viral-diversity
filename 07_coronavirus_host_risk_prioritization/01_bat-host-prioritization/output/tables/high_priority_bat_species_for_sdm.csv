@@ -1,0 +1,13 @@
+﻿Host,EWM_rank,EWM_CRS,VD_norm,ZSC_norm,ZSN_corrected_norm,VS_ln_norm,selection_path,selection_status,selection_reason
+Rhinolophus sinicus,1,0.775521,0.583333,0.5,1.0,0.886012,Path B,Selected_for_downstream_spatial_handoff,Selected via Path B.
+Rhinolophus ferrumequinum,2,0.766361,0.916667,1.0,0.550184,0.802597,Path A,Selected_for_downstream_spatial_handoff,Selected via Path A.
+Miniopterus schreibersii,3,0.546976,1.0,1.0,0.012526,0.775762,Path A,Selected_for_downstream_spatial_handoff,Selected via Path A.
+Rhinolophus pusillus,4,0.521202,0.75,0.5,0.362477,0.777697,Path B,Selected_for_downstream_spatial_handoff,Selected via Path B.
+Eptesicus serotinus,5,0.504807,0.583333,1.0,0.165447,0.560261,Path A,Selected_for_downstream_spatial_handoff,Selected via Path A.
+Hipposideros armiger,6,0.501413,0.916667,1.0,0.037548,0.406483,Path A,Selected_for_downstream_spatial_handoff,Selected via Path A.
+Pipistrellus abramus,7,0.471928,0.583333,1.0,0.03397,0.788244,Path A,Selected_for_downstream_spatial_handoff,Selected via Path A.
+Rhinopoma hardwickii,9,0.406036,0.5,1.0,0.030471,0.344416,Path A,Selected_for_downstream_spatial_handoff,Selected via Path A.
+Rhinolophus affinis,10,0.396341,0.583333,0.5,0.142325,0.825591,Path B,Selected_for_downstream_spatial_handoff,Selected via Path B.
+Myotis emarginatus,11,0.379731,0.333333,1.0,0.02514,0.441103,Path A,Selected_for_downstream_spatial_handoff,Selected via Path A.
+Myotis ricketti,14,0.350084,0.666667,0.5,0.006193,0.785824,Path B,Selected_for_downstream_spatial_handoff,Selected via Path B.
+Hipposideros pomona,20,0.315911,0.583333,0.5,0.011659,0.603434,Path B,Selected_for_downstream_spatial_handoff,Selected via Path B.

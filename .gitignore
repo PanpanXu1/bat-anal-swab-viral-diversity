@@ -1,0 +1,36 @@
+# Released analysis outputs are intentionally included for manuscript review.
+# Keep workflow-level output/ files trackable so `git add .` does not omit
+# the example figures, tables and diagnostics documented in the READMEs.
+**/outputs/*
+**/results/*
+
+# Non-target image formats
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.svg
+
+# R/Python caches and local environments
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+.r-lib/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.worktrees/
+.w/
+
+# Temporary/cache/system files
+*.tmp
+*.temp
+*.log
+*.bak
+~$*
+.DS_Store
+Thumbs.db
+desktop.ini

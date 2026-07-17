@@ -1,0 +1,7 @@
+mgcv
+emmeans
+ggplot2
+readr
+dplyr
+tidyr
+tibble
