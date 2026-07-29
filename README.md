@@ -8,7 +8,7 @@ This repository contains reproducible workflows and analysis-ready data supporti
 
 ## Manuscript
 
-**Title:** Novel Bat RNA Virus Discovery and Integrated Spatial Prioritization Highlight Mountain Landscapes for Bat Coronavirus Surveillance
+**Title:** Discovery of Novel Bat RNA Viruses and Integrated Spatial Prioritization Highlight Mountain Landscapes for Coronavirus Surveillance
 
 **Authors:** Panpan Xu, Yelin Han, Kun Zhao, Wenliang Zhao, Shixuan Dong, Bo Liu, Xingyu Zhang, Yuyang Wang, Lamei Zhao, Xiujuan Yu, Qing Tang, Junpeng Zhang, Guangjian Zhu, Shuyi Zhang, Jian Yang, Qi Jin, Edward C. Holmes, and Zhiqiang Wu.
 
