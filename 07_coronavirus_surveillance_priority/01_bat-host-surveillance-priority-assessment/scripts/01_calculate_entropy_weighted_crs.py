@@ -5,10 +5,10 @@ import pandas as pd
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DATA_PATH = PROJECT_ROOT / "input" / "bat_coronavirus_host_risk_indicators.csv"
+DATA_PATH = PROJECT_ROOT / "input" / "bat_coronavirus_host_surveillance_priority_indicators.csv"
 RESULTS_DIR = PROJECT_ROOT / "output" / "tables"
 WEIGHTS_PATH = RESULTS_DIR / "entropy_weights.csv"
-SCORES_PATH = RESULTS_DIR / "bat_risk_score_ewm.csv"
+SCORES_PATH = RESULTS_DIR / "bat_crs_rankings_ewm.csv"
 EXPECTED_HOST_RECORDS = 229
 OUTPUT_DECIMAL_PLACES = 6
 

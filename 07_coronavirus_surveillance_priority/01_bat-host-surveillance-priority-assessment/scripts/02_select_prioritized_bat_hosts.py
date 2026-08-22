@@ -6,10 +6,10 @@ import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = PROJECT_ROOT / "output" / "tables"
-SCORES_PATH = RESULTS_DIR / "bat_risk_score_ewm.csv"
+SCORES_PATH = RESULTS_DIR / "bat_crs_rankings_ewm.csv"
 THRESHOLD_PATH = RESULTS_DIR / "selection_threshold_summary.csv"
 AUDIT_PATH = RESULTS_DIR / "selection_audit_trail.csv"
-FINAL_SELECTION_PATH = RESULTS_DIR / "high_priority_bat_species_for_sdm.csv"
+FINAL_SELECTION_PATH = RESULTS_DIR / "prioritized_bat_hosts_for_sdm.csv"
 SCATTER_INPUT_PATH = (
     PROJECT_ROOT.parent
     / "02_bat-crs-scatterplot"
@@ -62,7 +62,7 @@ def assign_selection(row: pd.Series) -> pd.Series:
             {
                 "final_selected": False,
                 "selection_path": "Not selected",
-                "exclusion_reason": "Excluded: EWM_CRS below the CRS P90 high-priority floor.",
+                "exclusion_reason": "Excluded: EWM_CRS below the CRS P90 surveillance-priority floor.",
             }
         )
     if not row["passes_ZSN_floor"]:
@@ -276,7 +276,7 @@ def main() -> None:
     print(f"VD_norm P95: {vd_p95:.{OUTPUT_DECIMAL_PLACES}f}")
     print(f"Selected via Path A: {int((final_selection['selection_path'] == 'Path A').sum())}")
     print(f"Selected via Path B: {int((final_selection['selection_path'] == 'Path B').sum())}")
-    print(f"Selected representative high-priority hosts: {len(final_selection)}")
+    print(f"Selected prioritized bat hosts: {len(final_selection)}")
     print(f"Output saved: {FINAL_SELECTION_PATH.relative_to(PROJECT_ROOT)}")
     print(f"Scatterplot input saved: {SCATTER_INPUT_PATH.relative_to(PROJECT_ROOT.parent)}")
 

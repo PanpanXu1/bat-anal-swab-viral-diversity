@@ -1,18 +1,18 @@
-# 01 Bat Host Prioritization
+# 01 Bat Host Surveillance-Priority Assessment
 
 ## Purpose
 
-This workflow calculates host-level Coronavirus Risk Score (CRS) values and defines a representative high-priority bat-host set for downstream visualization and spatial analysis.
+This workflow calculates host-level Coronavirus Ranking Score (CRS) values and defines a set of prioritized bat hosts for downstream visualization and spatial analysis.
 
-## Why Host Prioritization Was Needed
+## Why Host Surveillance-Priority Assessment Was Needed
 
 The host-level input contains a broad set of bat species with heterogeneous levels of viral evidence. Running downstream spatial modelling for every host species would be inefficient and would make the combined spatial-priority surface harder to interpret, because many low-evidence or weakly coronavirus-associated species could contribute small distributional signals to the final map. This workflow therefore prioritizes a focused host set before downstream spatial analysis.
 
-The selected hosts should be interpreted as a data-driven coronavirus-priority host set for downstream analysis, not as assigned "high-risk" species. Prioritization is based on the complete input table, normalized indicators, entropy-weighted CRS values and explicit threshold rules.
+The selected hosts should be interpreted as a data-driven set of prioritized bat hosts for coronavirus surveillance, not as assigned "high-risk" species. The host surveillance-priority assessment is based on the complete input table, normalized indicators, entropy-weighted CRS values and explicit threshold rules.
 
 ## Input Files
 
-- `input/bat_coronavirus_host_risk_indicators.csv`: host-level indicators including viral diversity, zoonotic species count, zoonotic sequence number and viral sequence count.
+- `input/bat_coronavirus_host_surveillance_priority_indicators.csv`: host-level indicators including viral diversity, zoonotic species count, zoonotic sequence number and viral sequence count.
 
 ## Script Workflow
 
@@ -23,7 +23,7 @@ The selected hosts should be interpreted as a data-driven coronavirus-priority h
    - Applies entropy weighting to calculate CRS values.
    - Writes the full host-level CRS table and the entropy-weight table.
 
-2. `scripts/02_select_high_priority_bat_species.py`
+2. `scripts/02_select_prioritized_bat_hosts.py`
    - Reads the CRS table from Step 1.
    - Calculates `CRS_P90`, `VD_P90` and `VD_P95` directly from the full-precision host-level score table.
    - Applies the CRS P90 floor, the minimum repeated zoonotic-sequence evidence floor and Path A/Path B evidence rules.
@@ -31,7 +31,7 @@ The selected hosts should be interpreted as a data-driven coronavirus-priority h
 
 ## Selection Rules
 
-The representative high-priority host set is selected using all of the following criteria:
+The prioritized bat hosts are selected using all of the following criteria:
 
 1. `EWM_CRS >= CRS_P90`, where `CRS_P90` is calculated from the full host-level CRS distribution.
 2. `Zoonotic Sequence Number >= 2`, requiring at least two zoonotic-associated sequences as repeated sequence evidence.
@@ -39,7 +39,7 @@ The representative high-priority host set is selected using all of the following
    - Path A: `ZSC_norm = 1.00` and `VD_norm >= VD_P90`.
    - Path B: `ZSC_norm = 0.50` and `VD_norm >= VD_P95`.
 
-The CRS P90 threshold defines a scale-free upper-decile composite-risk floor rather than a fixed species count. The minimum repeated-sequence floor avoids selecting hosts supported by only a single zoonotic-associated sequence. Path A and Path B then require a compatible evidence structure based on zoonotic-virus breadth, repeated zoonotic-sequence support and viral-diversity rank.
+The CRS P90 threshold defines a scale-free upper-decile CRS floor rather than a fixed species count. The minimum repeated-sequence floor avoids selecting hosts supported by only a single zoonotic-associated sequence. Path A and Path B then require a compatible evidence structure based on zoonotic-virus breadth, repeated zoonotic-sequence support and viral-diversity rank.
 
 ## Indicator Rationale
 
@@ -48,7 +48,7 @@ The CRS P90 threshold defines a scale-free upper-decile composite-risk floor rat
 - `Zoonotic Sequence Number` records sequence-level zoonotic evidence and is corrected by total viral sequence count to reduce sequencing-depth bias.
 - `Viral Sequence Count` represents background viral sequence evidence and is log-transformed before normalization.
 
-Entropy weighting assigns data-driven weights to the normalized indicators, reducing reliance on subjective weighting. The raw indicators, normalized indicators, weights, thresholds and per-host selection decisions are exported so the prioritization process can be audited from input table to the next workflow.
+Entropy weighting assigns data-driven weights to the normalized indicators, reducing reliance on subjective weighting. The raw indicators, normalized indicators, weights, thresholds and per-host selection decisions are exported so the assessment process can be audited from input table to the next workflow.
 
 ## Expected Outputs
 
@@ -61,7 +61,7 @@ Entropy weighting assigns data-driven weights to the normalized indicators, redu
      `indicator` names the normalized indicator, `entropy` records information dispersion, `redundancy` records the information retained for weighting, and `weight` records the final entropy-derived contribution to CRS.
    - Purpose:
      this table documents how the four normalized indicators are combined into the composite CRS and allows the weighting step to be audited independently of the final ranking.
-2. `output/tables/bat_risk_score_ewm.csv`
+2. `output/tables/bat_crs_rankings_ewm.csv`
    - Generated by `scripts/01_calculate_entropy_weighted_crs.py`.
    - Records the complete host-level CRS table for all input bat hosts.
    - Key columns:
@@ -69,27 +69,27 @@ Entropy weighting assigns data-driven weights to the normalized indicators, redu
    - Purpose:
      this is the complete ranking table and the direct input for the downstream selection script. It is retained so that the final selected host set can be traced back to all scored hosts.
 3. `output/tables/selection_threshold_summary.csv`
-   - Generated by `scripts/02_select_high_priority_bat_species.py`.
+   - Generated by `scripts/02_select_prioritized_bat_hosts.py`.
    - Records only the thresholds that are actually used by the selection workflow.
    - Key columns:
      `threshold_name` identifies `CRS_P90`, `ZSN_min_sequence_evidence`, `VD_P90` or `VD_P95`; `source_column` and `quantile` define how percentile thresholds are calculated; `threshold_value` records the value used by the script; `n_hosts` records the full host count used for threshold calculation; `calculation_basis` and `rule` describe where each threshold enters the workflow.
    - Purpose:
      this table makes the percentile thresholds reproducible and traceable.
 4. `output/tables/selection_audit_trail.csv`
-   - Generated by `scripts/02_select_high_priority_bat_species.py`.
+   - Generated by `scripts/02_select_prioritized_bat_hosts.py`.
    - Records one row per scored host and preserves the selection decision for both selected and excluded hosts.
    - Key columns:
      `CRS_P90`, `VD_P90` and `VD_P95` repeat the applied percentile thresholds; `Zoonotic Sequence Number` records the raw sequence evidence used for the repeated-evidence floor; `passes_CRS_P90_floor` records whether the host is in the upper decile of CRS; `passes_ZSN_floor` records whether the host has at least two zoonotic-associated sequences; `passes_path_A` and `passes_path_B` record the two evidence-structure filters; `final_selected` records the final decision; `selection_path` records the route to selection when applicable; `exclusion_reason` records the first rule explaining exclusion.
    - Purpose:
-     this is the main reproducibility audit table for the prioritization step. It allows a reader to verify why each host was selected or excluded without inspecting the plotting workflow.
-5. `output/tables/high_priority_bat_species_for_sdm.csv`
-   - Generated by `scripts/02_select_high_priority_bat_species.py`.
-   - Records the 12 representative high-priority hosts that pass the CRS P90 floor, the repeated zoonotic-sequence evidence floor and Path A/Path B evidence rules.
+     this is the main reproducibility audit table for the assessment step. It allows a reader to verify why each host was selected or excluded without inspecting the plotting workflow.
+5. `output/tables/prioritized_bat_hosts_for_sdm.csv`
+   - Generated by `scripts/02_select_prioritized_bat_hosts.py`.
+   - Records the 12 prioritized bat hosts that pass the CRS P90 floor, the repeated zoonotic-sequence evidence floor and Path A/Path B evidence rules.
    - Key columns:
      `Host` records the selected species, `EWM_rank` and `EWM_CRS` retain the full-table CRS position, normalized indicator columns retain the coordinates used by the CRS scatterplot, and `selection_path`, `selection_status` and `selection_reason` document how the selected host enters the next workflow.
    - Purpose:
-     this is the selected-host table for the next workflow. It feeds the CRS scatterplot and provides the host set used for downstream spatial analysis, while the full scored host table remains available in `output/tables/bat_risk_score_ewm.csv`.
+     this is the selected-host table for the next workflow. It feeds the CRS scatterplot and provides the host set used for downstream spatial analysis, while the full scored host table remains available in `output/tables/bat_crs_rankings_ewm.csv`.
 
 ## Input for the Next Workflow
 
-The selection script writes the reduced scatterplot input to `../02_bat-crs-scatterplot/input/bat_crs_scatterplot_input.csv`. That file contains only the selected hosts and the numeric fields required for plotting, while `output/tables/bat_risk_score_ewm.csv` retains the complete host-level CRS table.
+The selection script writes the reduced scatterplot input to `../02_bat-crs-scatterplot/input/bat_crs_scatterplot_input.csv`. That file contains only the selected hosts and the numeric fields required for plotting, while `output/tables/bat_crs_rankings_ewm.csv` retains the complete host-level CRS table.

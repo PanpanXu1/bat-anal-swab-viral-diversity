@@ -34,9 +34,9 @@ PYTHON_WORKFLOWS = [
     "06_rdrp_sequence_diversity_and_host_virus_network/01_viral-order-butterfly-plot/scripts/plot_viral_order_butterfly.py",
     "06_rdrp_sequence_diversity_and_host_virus_network/02_rdrp-amino-acid-identity-barplot/scripts/plot_rdrp_amino_acid_identity_barplot.py",
     "06_rdrp_sequence_diversity_and_host_virus_network/03_rdrp-contig-host-virus-network-centrality/scripts/plot_rdrp_contig_host_virus_network_centrality.py",
-    "07_coronavirus_host_risk_prioritization/01_bat-host-prioritization/scripts/01_calculate_entropy_weighted_crs.py",
-    "07_coronavirus_host_risk_prioritization/01_bat-host-prioritization/scripts/02_select_high_priority_bat_species.py",
-    "07_coronavirus_host_risk_prioritization/02_bat-crs-scatterplot/scripts/plot_bat_crs_scatterplot.py",
+    "07_coronavirus_surveillance_priority/01_bat-host-surveillance-priority-assessment/scripts/01_calculate_entropy_weighted_crs.py",
+    "07_coronavirus_surveillance_priority/01_bat-host-surveillance-priority-assessment/scripts/02_select_prioritized_bat_hosts.py",
+    "07_coronavirus_surveillance_priority/02_bat-crs-scatterplot/scripts/plot_bat_crs_scatterplot.py",
 ]
 
 
