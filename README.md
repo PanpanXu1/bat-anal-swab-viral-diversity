@@ -1,6 +1,6 @@
-# Reproducible Analyses of Bat Anal-Swab Viral Diversity, Host-Virus Sharing, and Coronavirus Surveillance Priority
+# Reproducible Analyses of Bat Anal-Swab Viral Diversity, Host-Virus Sharing, Environmental Associations, and Host-Level Coronavirus Surveillance Prioritization
 
-This repository organizes the main analysis scripts and minimal analysis-ready input tables used for method-level reproduction of the manuscript's code-supported analyses. Each numbered top-level folder represents one analysis block, and each subfolder is an individual workflow with its own `scripts/`, `input/` and `output/` directories.
+This repository provides reproducible code and analysis-ready data for bat anal-swab viral diversity, host-virus sharing, environmental associations, and host-level prioritization for bat coronavirus surveillance. Each numbered top-level folder represents one analysis block, and each subfolder is an individual workflow with its own `scripts/`, `input/` and `output/` directories.
 
 Scripts write generated figures, tables and diagnostics to workflow-level `output/` directories. When a small generated table is required by a downstream workflow, it is copied into that workflow's `input/` directory and its provenance is described in the workflow README.
 

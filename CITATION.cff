@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite the associated manuscript and this software release."
-title: "Bat Anal-Swab Viral Discovery, Diversity, and Spatial Prioritization for Coronavirus Surveillance"
+title: "Bat Anal-Swab Viral Diversity, Host-Virus Sharing, Environmental Associations, and Host-Level Prioritization for Coronavirus Surveillance"
 type: software
 version: 1.0.0
 authors:
@@ -10,9 +10,9 @@ authors:
     given-names: Zhiqiang
     email: zqwu_lab@163.com
 license: MIT
-date-released: 2026-07-02
+date-released: 2026-07-17
 url: "https://github.com/PanpanXu1/bat-anal-swab-viral-diversity"
-abstract: "Reproducible code and public analysis-ready data for bat anal-swab viral discovery, viral diversity, host-virus sharing, environmental associations, and spatial prioritization of bat coronavirus surveillance across China and mainland Southeast Asia."
+abstract: "Reproducible code and analysis-ready data for bat anal-swab viral diversity, host-virus sharing, environmental associations, and host-level prioritization for bat coronavirus surveillance."
 keywords:
   - bat anal swabs
   - bat-associated viruses
@@ -21,7 +21,7 @@ keywords:
   - metatranscriptomics
   - host-virus sharing
   - coronavirus surveillance
-  - spatial prioritization
+  - host-level surveillance prioritization
   - viral ecology
   - reproducible research
 preferred-citation:
