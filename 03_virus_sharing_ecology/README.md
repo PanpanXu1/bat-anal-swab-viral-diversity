@@ -6,12 +6,12 @@ This block corresponds to the manuscript section on ecological and host-associat
 
 | Order | Workflow | Purpose |
 |---|---|---|
-| 1 | `01_virus-sharing-distance-decay/` | Evaluates geographic distance decay among site pairs with non-zero shared viral clusters. |
+| 1 | `01_virus-sharing-distance-decay/` | Tests distance decay among positive-sharing sampling-group pairs using sampling-group label permutations and distance thresholds of >0, >25, >50 and >100 km. |
 | 2 | `02_terrain-virus-sharing/` | Plots a terrain-annotated sample-pool sharing matrix and tests sharing across terrain-pair categories. |
 | 3 | `03_host-identity-virus-sharing/` | Relates host sequence identity to shared viral clusters. |
 | 4 | `04_host-taxonomy-virus-sharing/` | Tests host-taxonomic grouping and viral-cluster sharing. |
 
-Coordinate-bearing inputs used for spatial distance context are rounded to two decimal places for sensitive locality protection.
+Public coordinate fields are rounded to two decimal places for sensitive locality protection. The distance-decay workflow uses a complete pairwise distance table calculated from the original coordinates before rounding. Reproduce that analysis using the supplied distance table, as described in its workflow README.
 
 ## Method Rationale
 

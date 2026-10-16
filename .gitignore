@@ -1,6 +1,5 @@
-# Released analysis outputs are intentionally included for manuscript review.
-# Keep workflow-level output/ files trackable so `git add .` does not omit
-# the example figures, tables and diagnostics documented in the READMEs.
+# Generated outputs follow the policy of each workflow.
+# Workflow-specific .gitignore files may exclude generated results.
 **/outputs/*
 **/results/*
 

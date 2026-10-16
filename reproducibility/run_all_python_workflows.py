@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run all released Python workflows from the repository root."""
+"""Run registered Python workflows from the repository root."""
 
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ PYTHON_WORKFLOWS = [
     "02_viral_detection_and_spectrum/03_host-genus-viral-spectrum_in-this-study/scripts/plot_viral_spectrum.py",
     "02_viral_detection_and_spectrum/04_host-genus-viral-spectrum_previous-datasets/scripts/plot_viral_spectrum.py",
     "03_virus_sharing_ecology/01_virus-sharing-distance-decay/scripts/analyze_virus_sharing_distance_decay.py",
+    "03_virus_sharing_ecology/01_virus-sharing-distance-decay/scripts/analyze_distance_threshold_sensitivity.py",
     "03_virus_sharing_ecology/02_terrain-virus-sharing/scripts/01_plot_terrain_shared_cluster_heatmap.py",
     "03_virus_sharing_ecology/02_terrain-virus-sharing/scripts/02_test_terrain_association_with_virus_sharing.py",
     "03_virus_sharing_ecology/03_host-identity-virus-sharing/scripts/analyze_host_identity_virus_sharing.py",
@@ -72,7 +73,7 @@ def main() -> int:
             print(f"- {relative_path}: exit {return_code}")
         return 1
 
-    print("\nAll released Python workflows completed successfully.")
+    print("\nAll registered Python workflows completed successfully.")
     return 0
 
 

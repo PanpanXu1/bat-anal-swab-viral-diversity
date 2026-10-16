@@ -29,7 +29,7 @@ install.packages(c("iNEXT", "mgcv", "emmeans", "ggplot2", "readr", "dplyr", "tid
 
 ## Tested Environment
 
-The 30 core analysis scripts in the measured-runtime table were tested successfully in one fresh Conda environment on 22 August 2026.
+The scripts with Ubuntu runtime measurements in the table below were tested successfully in one fresh Conda environment on 22 August 2026.
 
 | Component | Tested value |
 |---|---|
@@ -43,7 +43,9 @@ The 30 core analysis scripts in the measured-runtime table were tested successfu
 
 The tested direct Python dependencies were Matplotlib 3.10.9, NumPy 2.2.6, openpyxl 3.1.5, pandas 2.3.3 and ReportLab 5.0.1. The tested direct R dependencies were dplyr 1.2.1, emmeans 2.0.4, ggplot2 4.0.3, iNEXT 3.0.2, mgcv 1.9-4, readr 2.2.0, tibble 3.3.1 and tidyr 1.3.2. These versions are the resolved versions from the successful fresh `environment.yml` installation; the environment file retains compatible constraints rather than an exact platform lock.
 
-No GPU or other non-standard hardware is required. All 30 core analysis scripts completed successfully using CPU execution. Although the tested system exposed a CUDA-capable host to WSL2, none of the released scripts imports, configures or uses GPU software.
+No GPU or other non-standard hardware is required. Scripts with Ubuntu runtime measurements completed successfully using CPU execution. Although the tested system exposed a CUDA-capable host to WSL2, none of the released scripts imports, configures or uses GPU software.
+
+The two distance-decay scripts were tested on Windows 11 on 16 October 2026 using Python 3.12.14, NumPy 2.5.4, pandas 3.0.1 and Matplotlib 3.11.2. Both scripts completed 9,999 sampling-group label permutations using the included input tables. Verification covered all five distance subsets and agreement of the observed correlations with the supplied results.
 
 ## Running the Workflows
 
@@ -71,6 +73,15 @@ Rscript path/to/workflow/scripts/script.R
 ```
 
 Scripts read the analysis-ready files in their workflow-level `input/` directory and create or refresh files under the corresponding `output/` directory. Each workflow README lists the expected output filenames, formats and interpretation. The supplementary VIF < 5 GAMM refit runs separately with `python 05_environmental_association_and_gamm/07_vif5_sensitivity_analysis/scripts/run_vif5_gamm.py` and writes nine-column GAMM estimates plus the final ten-predictor VIF table as CSV files. The VIF table export added to workflow 06 and the workflow 07 refit were verified with the included data and R 4.5.1 on Windows; these changes are outside the earlier core Ubuntu runtime benchmark.
+
+The distance-decay workflow can be run independently with:
+
+```bash
+python 03_virus_sharing_ecology/01_virus-sharing-distance-decay/scripts/analyze_virus_sharing_distance_decay.py
+python 03_virus_sharing_ecology/01_virus-sharing-distance-decay/scripts/analyze_distance_threshold_sensitivity.py
+```
+
+Both scripts use 9,999 sampling-group label permutations. The sensitivity script evaluates all positive-sharing pairs and the >0, >25, >50 and >100 km subsets and is included in the batch Python runner.
 
 ## Repository Structure
 
@@ -130,7 +141,7 @@ repository_root/
 |---|---|---|
 | 01 | `01_sampling_and_host_representativeness/` | Sampling scale, in-house host coverage, Global Biodiversity Information Facility (GBIF) comparison and seasonal species accumulation/extrapolation checks. |
 | 02 | `02_viral_detection_and_spectrum/` | Viral-family detection accumulation, in-study viral-spectrum heatmaps and previous-dataset host-genus spectrum comparison. |
-| 03 | `03_virus_sharing_ecology/` | Geographic distance decay, terrain-associated sharing, host identity sharing and host-taxonomy sharing analyses. |
+| 03 | `03_virus_sharing_ecology/` | Geographic distance decay and distance-threshold sensitivity, terrain-associated sharing, host identity sharing and host-taxonomy sharing analyses. |
 | 04 | `04_viral_diversity_landscape_models/` | Adjusted Shannon diversity comparison and spatial autocorrelation checks. |
 | 05 | `05_environmental_association_and_gamm/` | Environmental correlation/Mantel summaries, functional-form assessment, parsimony selection, the final environmental generalized additive mixed model (GAMM), and a VIF < 5 sensitivity refit. |
 | 06 | `06_rdrp_sequence_diversity_and_host_virus_network/` | Viral-order abundance, RdRp amino-acid identity summaries and RdRp host-virus network centrality. |
@@ -170,7 +181,6 @@ The following wall-clock runtimes were measured with `/usr/bin/time -p` in the t
 | `02_viral_detection_and_spectrum/02_province-host-viral-spectrum_in-this-study` | `plot_viral_spectrum.py` | ~3 s |
 | `02_viral_detection_and_spectrum/03_host-genus-viral-spectrum_in-this-study` | `plot_viral_spectrum.py` | ~3 s |
 | `02_viral_detection_and_spectrum/04_host-genus-viral-spectrum_previous-datasets` | `plot_viral_spectrum.py` | ~4 s |
-| `03_virus_sharing_ecology/01_virus-sharing-distance-decay` | `analyze_virus_sharing_distance_decay.py` | ~32 s |
 | `03_virus_sharing_ecology/02_terrain-virus-sharing` | `01_plot_terrain_shared_cluster_heatmap.py` | ~8 s |
 | `03_virus_sharing_ecology/02_terrain-virus-sharing` | `02_test_terrain_association_with_virus_sharing.py` | ~40 s |
 | `03_virus_sharing_ecology/03_host-identity-virus-sharing` | `analyze_host_identity_virus_sharing.py` | ~9 s |
@@ -192,6 +202,13 @@ The following wall-clock runtimes were measured with `/usr/bin/time -p` in the t
 | `07_coronavirus_surveillance_priority/01_bat-host-surveillance-priority-assessment` | `02_select_prioritized_bat_hosts.py` | ~3 s |
 | `07_coronavirus_surveillance_priority/02_bat-crs-scatterplot` | `plot_bat_crs_scatterplot.py` | ~8 s |
 
+Distance-decay runtimes were measured on the Windows system specified above with 9,999 sampling-group label permutations per script:
+
+| Workflow | Script | Approximate measured wall-clock runtime |
+|---|---|---:|
+| `03_virus_sharing_ecology/01_virus-sharing-distance-decay` | `analyze_virus_sharing_distance_decay.py` | ~9 s |
+| `03_virus_sharing_ecology/01_virus-sharing-distance-decay` | `analyze_distance_threshold_sensitivity.py` | ~29 s |
+
 ## Using Your Own Data
 
 To use a workflow with user-supplied data, first make a separate working copy of that workflow so the released analysis-ready inputs and expected outputs remain available for comparison. Prepare replacement files using the corresponding files under `input/` as structural templates and follow the workflow-level README. Preserve the documented filenames, column names, data types, units, transformations, category labels and missing-value conventions because the scripts validate or directly reference these fields.
@@ -203,6 +220,8 @@ Place the replacement files in the copied workflow's `input/` directory, install
 Only small analysis-ready input tables required by the released scripts are included. Input provenance is described in the relevant workflow README files, especially when a downstream workflow uses a small upstream result table as its local input.
 
 To protect sensitive cave roost locations, geographic coordinates are rounded to two decimal places. Detailed cave locations and site-use information are not publicly released. Access to precise locality information requires a reasonable request to the corresponding author, Dr. Zhiqiang Wu ([zqwu_lab@163.com](mailto:zqwu_lab@163.com)).
+
+The distance-decay workflow uses a complete pairwise distance table calculated before coordinate rounding. Exact reproduction uses this supplied distance table; recalculating distances from publicly rounded coordinates can change zero-distance assignments and distance-threshold membership.
 
 ## License and Citation
 
