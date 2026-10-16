@@ -1,0 +1,27 @@
+﻿term,role,model_form,term_type,estimate,std_error,edf,statistic,p_value
+(Intercept),intercept,intercept,parametric,2.08,0.86,,2.43,0.02
+log10_pool_size,pool sample size,linear fixed effect,parametric,2.11,0.31,,6.73,P < 0.001
+seasonSpring,sampling season,categorical fixed effect,parametric,0.09,0.67,,0.13,0.89
+seasonSummer,sampling season,categorical fixed effect,parametric,0.16,0.68,,0.24,0.81
+seasonWinter,sampling season,categorical fixed effect,parametric,-0.01,1.06,,-0.01,0.99
+factor(year)2022,sampling year,categorical fixed effect,parametric,-0.52,1.20,,-0.43,0.67
+factor(year)2023,sampling year,categorical fixed effect,parametric,0.78,0.56,,1.38,0.17
+factor(year)2024,sampling year,categorical fixed effect,parametric,1.51,1.15,,1.32,0.19
+landuse_broadClosed_or_other_forest,land-use category,categorical fixed effect,parametric,0.16,0.42,,0.37,0.71
+landuse_broadCropland,land-use category,categorical fixed effect,parametric,0.82,0.43,,1.92,0.06
+landuse_broadOpen_vegetation,land-use category,categorical fixed effect,parametric,-0.38,0.51,,-0.75,0.45
+landuse_broadOther_or_unclassified,land-use category,categorical fixed effect,parametric,0.64,0.46,,1.40,0.16
+landuse_broadSparse_woodland,land-use category,categorical fixed effect,parametric,0.26,0.56,,0.47,0.64
+Mean Diurnal Range (Mean of monthly max temp - min temp) (Bio2),environmental predictor,linear fixed effect,parametric,-0.05,0.50,,-0.09,0.93
+Temperature Seasonality (standard deviation x100) (Bio4),environmental predictor,linear fixed effect,parametric,-0.54,1.08,,-0.50,0.61
+Max Temperature of Warmest Month (Bio5),environmental predictor,linear fixed effect,parametric,-0.10,0.53,,-0.20,0.84
+Mean Temperature of Wettest Quarter (Bio8),environmental predictor,linear fixed effect,parametric,-0.32,0.41,,-0.79,0.43
+China High-Resolution Ecological Environment Quality (CHEQ),environmental predictor,linear fixed effect,parametric,-0.16,0.21,,-0.80,0.43
+Normalized Difference Vegetation Index (NDVI),environmental predictor,linear fixed effect,parametric,0.18,0.16,,1.15,0.25
+Fractional Vegetation Cover (FVC),environmental predictor,linear fixed effect,parametric,-0.25,0.12,,-2.00,P = 0.047
+China Population Spatial Distribution (PSD),environmental predictor,linear fixed effect,parametric,0.01,0.12,,0.07,0.94
+Global Railway (GR),environmental predictor,linear fixed effect,parametric,0.02,0.26,,0.08,0.93
+Global Linear Hydrography (GLH),environmental predictor,linear fixed effect,parametric,-0.44,0.19,,-2.32,0.02
+s(terrain),terrain background,random-effect smooth,smooth,,,0.00,0.00,0.62
+s(host_genus),host-genus background,random-effect smooth,smooth,,,4.14,0.84,P = 0.008
+"s(longitude,latitude)",spatial structure,two-dimensional smooth,smooth,,,5.89,0.67,0.60

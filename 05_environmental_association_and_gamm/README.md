@@ -12,8 +12,11 @@ This block corresponds to the environmental association and adjusted environment
 | 4 | `04_environmental-linear-nonlinear-form-assessment/` | Compares linear and smooth forms for each of the 14 screened predictors under a prespecified seven-criterion rule. |
 | 5 | `05_environmental-final-variable-selection/` | Applies an independent contribution-based parsimony rule and propagates the assessed forms for retained predictors. |
 | 6 | `06_environmental-driver-gamm-final-model/` | Constructs environmental terms dynamically from the retained form metadata, fits the final adjusted GAMM with REML and exports model summaries and PDF figures. |
+| 7 | `07_vif5_sensitivity_analysis/` | Reconstructs the VIF < 5 selection from the primary model's 13 predictors, refits the ten-predictor GAMM, and exports term and final-predictor VIF CSV tables. |
 
 Technical workflow order: run workflows 2-6 in order for the GAMM chain. Workflow 1 is placed first because it appears earlier in the manuscript narrative but is not required as a direct input to the GAMM chain.
+
+Workflow 7 is a supplementary analysis after workflow 06. Its input contains the ten predictors retained after iterative highest-VIF deletion from workflow 06's final 13. Run `07_vif5_sensitivity_analysis/scripts/run_vif5_gamm.py` to refit the same model structure using only those ten predictors. All model terms are re-estimated; this workflow does not repeat the VIF < 10 fit or re-screen all original candidates.
 
 ## Method Rationale
 
@@ -32,3 +35,4 @@ Environmental-variable smooths, random-effect smooths and the spatial smooth hav
 - Workflow 04 reads workflow 03's screened standardized modelling table and writes the 14-row model-form assessment, a criterion summary and diagnostic PDF.
 - Workflow 05 reads that assessment, the preliminary contribution table and the screened modelling table, then writes the 13-row parsimonious predictor table and a removed-term audit.
 - Workflow 06 reads the screened modelling table, the parsimonious predictor table and the complete model-form assessment, then writes the form implementation audit, final model and drop-one summaries, and PDF figures.
+- Workflows 06 and 07 each export `output/tables/environmental_predictor_vif.csv` for the final 13-predictor and ten-predictor GAMMs, respectively.

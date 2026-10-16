@@ -29,7 +29,7 @@ install.packages(c("iNEXT", "mgcv", "emmeans", "ggplot2", "readr", "dplyr", "tid
 
 ## Tested Environment
 
-All released analysis scripts were tested successfully in one fresh Conda environment on 22 August 2026.
+The 30 core analysis scripts in the measured-runtime table were tested successfully in one fresh Conda environment on 22 August 2026.
 
 | Component | Tested value |
 |---|---|
@@ -43,21 +43,21 @@ All released analysis scripts were tested successfully in one fresh Conda enviro
 
 The tested direct Python dependencies were Matplotlib 3.10.9, NumPy 2.2.6, openpyxl 3.1.5, pandas 2.3.3 and ReportLab 5.0.1. The tested direct R dependencies were dplyr 1.2.1, emmeans 2.0.4, ggplot2 4.0.3, iNEXT 3.0.2, mgcv 1.9-4, readr 2.2.0, tibble 3.3.1 and tidyr 1.3.2. These versions are the resolved versions from the successful fresh `environment.yml` installation; the environment file retains compatible constraints rather than an exact platform lock.
 
-No GPU or other non-standard hardware is required. All 30 released analysis scripts completed successfully using CPU execution. Although the tested system exposed a CUDA-capable host to WSL2, none of the released scripts imports, configures or uses GPU software.
+No GPU or other non-standard hardware is required. All 30 core analysis scripts completed successfully using CPU execution. Although the tested system exposed a CUDA-capable host to WSL2, none of the released scripts imports, configures or uses GPU software.
 
 ## Running the Workflows
 
-Each workflow is self-contained and includes analysis-ready input data, executable scripts, workflow-specific instructions, and expected outputs. The included analysis-ready input data can be used to run and test the corresponding workflow.
+Core workflows include analysis-ready input data, executable scripts, workflow-specific instructions, and expected outputs. The VIF < 5 sensitivity workflow uses the saved inputs from workflow 06 to verify its predictor selection sequence.
 
-Each workflow can be run independently by following its workflow-level README.
+Follow each workflow-level README for its run command and input dependencies.
 
-To rerun all released Python workflows from the repository root:
+To rerun the core Python workflows from the repository root:
 
 ```bash
 python reproducibility/run_all_python_workflows.py
 ```
 
-To rerun all released R workflows from the repository root, make sure `Rscript` is on `PATH`, then run:
+To rerun the core R workflows from the repository root, make sure `Rscript` is on `PATH`, then run:
 
 ```bash
 python reproducibility/run_all_r_workflows.py
@@ -70,7 +70,7 @@ python path/to/workflow/scripts/script.py
 Rscript path/to/workflow/scripts/script.R
 ```
 
-Scripts read the analysis-ready files in their workflow-level `input/` directory and create or refresh files under the corresponding `output/` directory. Each workflow README lists the expected output filenames, formats and interpretation.
+Scripts read the analysis-ready files in their workflow-level `input/` directory and create or refresh files under the corresponding `output/` directory. Each workflow README lists the expected output filenames, formats and interpretation. The supplementary VIF < 5 GAMM refit runs separately with `python 05_environmental_association_and_gamm/07_vif5_sensitivity_analysis/scripts/run_vif5_gamm.py` and writes nine-column GAMM estimates plus the final ten-predictor VIF table as CSV files. The VIF table export added to workflow 06 and the workflow 07 refit were verified with the included data and R 4.5.1 on Windows; these changes are outside the earlier core Ubuntu runtime benchmark.
 
 ## Repository Structure
 
@@ -99,7 +99,8 @@ repository_root/
 |   |-- 03_environmental-correlation-vif-screening/
 |   |-- 04_environmental-linear-nonlinear-form-assessment/
 |   |-- 05_environmental-final-variable-selection/
-|   `-- 06_environmental-driver-gamm-final-model/
+|   |-- 06_environmental-driver-gamm-final-model/
+|   `-- 07_vif5_sensitivity_analysis/
 |-- 06_rdrp_sequence_diversity_and_host_virus_network/
 |   |-- 01_viral-order-butterfly-plot/
 |   |-- 02_rdrp-amino-acid-identity-barplot/
@@ -131,7 +132,7 @@ repository_root/
 | 02 | `02_viral_detection_and_spectrum/` | Viral-family detection accumulation, in-study viral-spectrum heatmaps and previous-dataset host-genus spectrum comparison. |
 | 03 | `03_virus_sharing_ecology/` | Geographic distance decay, terrain-associated sharing, host identity sharing and host-taxonomy sharing analyses. |
 | 04 | `04_viral_diversity_landscape_models/` | Adjusted Shannon diversity comparison and spatial autocorrelation checks. |
-| 05 | `05_environmental_association_and_gamm/` | Environmental correlation/Mantel summaries followed by an explicit seven-criterion functional-form assessment, independent parsimony selection and dynamically specified final environmental generalized additive mixed model (GAMM). |
+| 05 | `05_environmental_association_and_gamm/` | Environmental correlation/Mantel summaries, functional-form assessment, parsimony selection, the final environmental generalized additive mixed model (GAMM), and a VIF < 5 sensitivity refit. |
 | 06 | `06_rdrp_sequence_diversity_and_host_virus_network/` | Viral-order abundance, RdRp amino-acid identity summaries and RdRp host-virus network centrality. |
 | 07 | `07_coronavirus_surveillance_priority/` | Coronavirus Ranking Score (CRS) calculation, host surveillance-priority assessment, selection of prioritized bat hosts and coronavirus surveillance priority visualization. |
 

@@ -14,7 +14,7 @@ The three files are copied into this module so it can run as a self-contained wo
 
 ## Script
 
-- `scripts/fit_parsimonious_gamm.R`: validates the three input contracts, builds an explicit environmental-term mapping, fits the final model with `mgcv::gam(method = "REML")`, performs drop-one refits and exports tables and figures.
+- `scripts/fit_parsimonious_gamm.R`: validates the three input contracts, builds an explicit environmental-term mapping, calculates individual VIFs for the retained predictors, fits the final model with `mgcv::gam(method = "REML")`, performs drop-one refits and exports tables and figures.
 
 For a retained variable with `selected_form = linear`, the formula contains its internal `env_i` term. For a validated `selected_form = nonlinear`, the formula contains `s(env_i, bs='tp', k=<selected_k>)`. The current 13 retained predictors are all linear, but this is an input result rather than a hard-coded restriction. A nonlinear decision is accepted only when all seven upstream criteria are true and `selected_k` is a finite integer of at least 4.
 
@@ -42,6 +42,8 @@ The standalone modelling table is also validated strictly. The response, pool si
    - Smooth internal names such as `s(env_i)` are mapped back to the original environmental label.
 3. `output/tables/gamm_drop_one_contribution_summary.csv`
    - Drop-one results with `term_group`, `term_name`, `model_comparison_method = ML`, and ML-based changes in deviance explained, adjusted R-squared and AIC. The corresponding full-model p-value, where available, is taken from the final REML summary and is not an ML model-comparison p-value.
+4. `output/tables/environmental_predictor_vif.csv`
+   - Individual VIF values, rounded to two decimals, for the 13 environmental predictors retained in the final GAMM. The VIFs use the same complete-case rows as the model and assess collinearity among environmental predictors only. Pool size, season, year and land-use category are adjustment covariates outside this VIF screen. All values are below 10.
 
 ## Model Structure
 

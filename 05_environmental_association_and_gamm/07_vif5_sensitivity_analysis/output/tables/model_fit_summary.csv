@@ -1,0 +1,27 @@
+"term","role","model_form","term_type","estimate","std_error","edf","statistic","p_value"
+"(Intercept)","intercept","intercept","parametric",2.08494577008061,0.858719786985136,,2.42796987059144,0.0161059547995057
+"log10_pool_size","pool sample size","linear fixed effect","parametric",2.10540310738435,0.312877090734786,,6.72916991921606,1.91456746762466e-10
+"seasonSpring","sampling season","categorical fixed effect","parametric",0.0894314211107868,0.671531468570526,,0.13317532430931,0.89419422496784
+"seasonSummer","sampling season","categorical fixed effect","parametric",0.163297544812291,0.679569974373152,,0.240295408817788,0.810357668991826
+"seasonWinter","sampling season","categorical fixed effect","parametric",-0.0102749082642528,1.06161675449123,,-0.00967854757452173,0.992287807655821
+"factor(year)2022","sampling year","categorical fixed effect","parametric",-0.515186397005286,1.19860629979875,,-0.42982119908079,0.667807789989459
+"factor(year)2023","sampling year","categorical fixed effect","parametric",0.777679054882192,0.561729953013429,,1.38443579643616,0.167832211568903
+"factor(year)2024","sampling year","categorical fixed effect","parametric",1.51074128231155,1.14852863421179,,1.31537102107023,0.189954149655199
+"landuse_broadClosed_or_other_forest","land-use category","categorical fixed effect","parametric",0.156171234105159,0.419311547992806,,0.372446775798883,0.709971092567984
+"landuse_broadCropland","land-use category","categorical fixed effect","parametric",0.815897616705862,0.425693137595032,,1.91663323800638,0.0567697743433609
+"landuse_broadOpen_vegetation","land-use category","categorical fixed effect","parametric",-0.384890292610302,0.511215687293591,,-0.752892178735627,0.45243700181333
+"landuse_broadOther_or_unclassified","land-use category","categorical fixed effect","parametric",0.642219582471652,0.45971037111257,,1.39700912319507,0.164023608514607
+"landuse_broadSparse_woodland","land-use category","categorical fixed effect","parametric",0.262608259460153,0.555297101103477,,0.472914875547346,0.636811172773175
+"Mean Diurnal Range (Mean of monthly max temp - min temp) (Bio2)","environmental predictor","environmental linear fixed effect","parametric",-0.0468352097506615,0.497497418511108,,-0.0941416136204852,0.925094851820332
+"Temperature Seasonality (standard deviation x100) (Bio4)","environmental predictor","environmental linear fixed effect","parametric",-0.543093802647922,1.07613314877667,,-0.50467156714325,0.614368351213151
+"Max Temperature of Warmest Month (Bio5)","environmental predictor","environmental linear fixed effect","parametric",-0.104088120574257,0.530010297811656,,-0.196388864525884,0.8445135599669
+"Mean Temperature of Wettest Quarter (Bio8)","environmental predictor","environmental linear fixed effect","parametric",-0.322171082666282,0.408976832384848,,-0.787748980272601,0.431815136786266
+"China High-Resolution Ecological Environment Quality (CHEQ)","environmental predictor","environmental linear fixed effect","parametric",-0.164646336453768,0.206170613526901,,-0.798592649249138,0.425513531675453
+"Normalized Difference Vegetation Index (NDVI)","environmental predictor","environmental linear fixed effect","parametric",0.184104023238685,0.159463499553821,,1.15452140304088,0.249721657514485
+"Fractional Vegetation Cover (FVC)","environmental predictor","environmental linear fixed effect","parametric",-0.247044010381818,0.123570181983301,,-1.99922025214143,0.0469949554764342
+"China Population Spatial Distribution (PSD)","environmental predictor","environmental linear fixed effect","parametric",0.00804841504975621,0.116131948510223,,0.0693040558864618,0.944819735472679
+"Global Railway (GR)","environmental predictor","environmental linear fixed effect","parametric",0.0222752736036403,0.264931541361537,,0.0840793568374803,0.933080952948762
+"Global Linear Hydrography (GLH)","environmental predictor","environmental linear fixed effect","parametric",-0.44392522607111,0.191454835605411,,-2.31869424800553,0.0214645791326938
+"s(terrain)","terrain background","random-effect smooth","smooth",,,0.000387173356065054,6.87459011737819e-05,0.6208678013305
+"s(host_genus)","host-genus background","random-effect smooth","smooth",,,4.14483702698875,0.842914068664705,0.00762635560930547
+"s(longitude,latitude)","spatial structure","two-dimensional smooth","smooth",,,5.88787220126755,0.669045829538109,0.603454793952089

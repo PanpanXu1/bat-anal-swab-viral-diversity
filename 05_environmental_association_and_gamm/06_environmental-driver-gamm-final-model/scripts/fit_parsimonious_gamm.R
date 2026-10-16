@@ -241,6 +241,18 @@ if (nrow(dat) < minimum_complete_n) {
        " (maximum of 50 and parametric design rank + 11), found ", nrow(dat), ".")
 }
 
+# VIF screening covers environmental predictors, excluding adjustment covariates.
+environmental_vif <- vapply(seq_along(env_vars), function(i) {
+  response <- dat[[env_vars[i]]]
+  others <- as.matrix(dat[, env_vars[-i], drop = FALSE])
+  design <- cbind(1, others)
+  fit <- stats::lm.fit(design, response)
+  r_squared <- 1 - sum(fit$residuals^2) / sum((response - mean(response))^2)
+  1 / (1 - r_squared)
+}, numeric(1))
+vif_table <- data.frame(variable = env_labels, VIF = sprintf("%.2f", environmental_vif))
+write_csv(vif_table, file.path(table_dir, "environmental_predictor_vif.csv"))
+
 spatial_term <- sprintf("s(longitude, latitude, bs='tp', k=%d)", spatial_k)
 final_terms <- c(
   "log10_pool_size", "season", "factor(year)", "landuse_broad", environmental_mapping$formula_term,
