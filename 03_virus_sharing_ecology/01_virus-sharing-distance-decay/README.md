@@ -71,4 +71,4 @@ Displayed correlations, axis ticks and numeric pair-table outputs use two decima
 
 ## Repository Contents
 
-The `input/` directory contains the two analysis tables, `scripts/` contains the two analysis scripts, and `requirements.txt` records the runtime dependencies. Generated outputs, temporary files and Python caches are excluded by `.gitignore`.
+The `input/` directory contains the two analysis tables, `scripts/` contains the two analysis scripts, and `requirements.txt` records the runtime dependencies.
