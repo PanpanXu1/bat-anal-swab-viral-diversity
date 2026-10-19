@@ -29,6 +29,7 @@ def rank_average(values: np.ndarray) -> np.ndarray:
 
 
 def mann_whitney_greater(x: pd.Series, y: pd.Series) -> tuple[float, float]:
+    """Return U and a one-sided asymptotic P value with tie and continuity corrections."""
     x_values = x.to_numpy(dtype=float)
     y_values = y.to_numpy(dtype=float)
     n1, n2 = len(x_values), len(y_values)
@@ -37,7 +38,11 @@ def mann_whitney_greater(x: pd.Series, y: pd.Series) -> tuple[float, float]:
     rank_sum_x = ranks[:n1].sum()
     u_statistic = rank_sum_x - n1 * (n1 + 1) / 2
     mean_u = n1 * n2 / 2
-    sd_u = sqrt(n1 * n2 * (n1 + n2 + 1) / 12)
+    n = n1 + n2
+    _, tie_counts = np.unique(combined, return_counts=True)
+    tie_term = np.sum(tie_counts ** 3 - tie_counts)
+    variance_u = n1 * n2 / 12 * (n + 1 - tie_term / (n * (n - 1)))
+    sd_u = sqrt(variance_u)
     z = (u_statistic - mean_u - 0.5) / sd_u if sd_u else 0.0
     p_value = 0.5 * erfc(z / sqrt(2))
     return float(u_statistic), float(p_value)
