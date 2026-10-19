@@ -18,8 +18,8 @@ OUTPUT_PATH = ROOT / "output" / "figures" / "rdrp_amino_acid_identity_barplot.pd
 
 COLORS = ["#FCE6C6", "#FFB3DD", "#B7E4FF"]
 LEGEND_LABELS = [
-    "Amino acid identity <50%",
-    "50% \u2264 Amino acid identity <90%",
+    "Amino acid identity \u226450%",
+    "50% < Amino acid identity <90%",
     "Amino acid identity \u226590%",
 ]
 
