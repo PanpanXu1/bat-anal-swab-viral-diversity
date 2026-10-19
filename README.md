@@ -1,6 +1,6 @@
 # Reproducible Analyses of Bat Anal-Swab Viral Diversity, Host-Virus Sharing, Environmental Associations, and Host-Level Coronavirus Surveillance Prioritization
 
-This repository provides reproducible code and analysis-ready data for bat anal-swab viral diversity, host-virus sharing, environmental associations, and host-level prioritization for bat coronavirus surveillance. Each numbered top-level folder represents one analysis block, and each subfolder is an individual workflow with its own `scripts/`, `input/` and `output/` directories.
+This repository provides reproducible code, analysis-ready data, and figure-linked phylogenetic alignments and trees for bat anal-swab viral diversity, host-virus sharing, environmental associations, and host-level prioritization for bat coronavirus surveillance. Numbered blocks 01–07 contain analysis workflows with their own `scripts/`, `input/` and `output/` directories. Block 08 archives the supplied phylogenetic alignment and tree files by manuscript figure.
 
 Scripts write generated figures, tables and diagnostics to workflow-level `output/` directories. When a small generated table is required by a downstream workflow, it is copied into that workflow's `input/` directory and its provenance is described in the workflow README.
 
@@ -119,6 +119,13 @@ repository_root/
 |-- 07_coronavirus_surveillance_priority/
 |   |-- 01_bat-host-surveillance-priority-assessment/
 |   `-- 02_bat-crs-scatterplot/
+|-- 08_phylogenetic_alignments_and_trees/
+|   |-- Figure4/
+|   |-- Figure5/
+|   |-- Sfigure1/ and Sfigure6/ through Sfigure22/
+|   |-- Sfigure24/
+|   |-- file_manifest.tsv
+|   `-- README.md
 |-- reproducibility/
 |   |-- run_all_python_workflows.py
 |   `-- run_all_r_workflows.py
@@ -146,10 +153,11 @@ repository_root/
 | 05 | `05_environmental_association_and_gamm/` | Environmental correlation/Mantel summaries, functional-form assessment, parsimony selection, the final environmental generalized additive mixed model (GAMM), and a VIF < 5 sensitivity refit. |
 | 06 | `06_rdrp_sequence_diversity_and_host_virus_network/` | Viral-order abundance, RdRp amino-acid identity summaries and RdRp host-virus network centrality. |
 | 07 | `07_coronavirus_surveillance_priority/` | Coronavirus Ranking Score (CRS) calculation, host surveillance-priority assessment, selection of prioritized bat hosts and coronavirus surveillance priority visualization. |
+| 08 | [`08_phylogenetic_alignments_and_trees/`](08_phylogenetic_alignments_and_trees/) | 60 paired FASTA alignment and Newick tree datasets for Figures 4–5 and Supplementary Figures 1, 6–22 and 24, organized by figure with a file manifest. |
 
 ## Workflow Convention
 
-Each workflow folder uses the same local structure:
+Analysis workflows in blocks 01–07 use the same local structure:
 
 ```text
 workflow-name/
@@ -159,6 +167,8 @@ workflow-name/
 |-- README.md     # workflow-specific notes
 `-- requirements.txt or r_requirements.txt when needed
 ```
+
+Block 08 preserves figure-based directories and paired `.fasta` and `.treefile` files. Its [README](08_phylogenetic_alignments_and_trees/README.md) and [file manifest](08_phylogenetic_alignments_and_trees/file_manifest.tsv) describe the archive. These supplied files can be downloaded directly and are outside the Python and R batch runners.
 
 ## Software Environment
 
@@ -217,7 +227,7 @@ Place the replacement files in the copied workflow's `input/` directory, install
 
 ## Data and Coordinate Protection
 
-Only small analysis-ready input tables required by the released scripts are included. Input provenance is described in the relevant workflow README files, especially when a downstream workflow uses a small upstream result table as its local input.
+The repository includes the analysis-ready input tables required by the released scripts and the figure-linked phylogenetic alignments and trees in [block 08](08_phylogenetic_alignments_and_trees/). The archive contains 60 FASTA files and 60 tree files (91,642,323 bytes in total). Input provenance is described in the relevant workflow README files, especially when a downstream workflow uses a small upstream result table as its local input.
 
 To protect sensitive cave roost locations, geographic coordinates are rounded to two decimal places. Detailed cave locations and site-use information are not publicly released. Access to precise locality information requires a reasonable request to the corresponding author, Dr. Zhiqiang Wu ([zqwu_lab@163.com](mailto:zqwu_lab@163.com)).
 
@@ -227,7 +237,7 @@ The distance-decay workflow uses a complete pairwise distance table calculated b
 
 Code and scripts in this repository are released under the MIT License. See `LICENSE`.
 
-Repository documentation, README files, method notes and public analysis-ready input tables are released under the Creative Commons Attribution 4.0 International License (CC BY 4.0), unless otherwise noted. See `DATA_LICENSE.md`.
+Repository documentation, README files, method notes, public analysis-ready input tables, and author-created phylogenetic trees and alignment compilations are released under the Creative Commons Attribution 4.0 International License (CC BY 4.0), unless otherwise noted. Reference sequences retain their original attribution and terms. See `DATA_LICENSE.md`.
 
 Precise cave roost coordinates, sensitive locality information, controlled-access raw data and third-party materials are not relicensed by this repository. External datasets and software packages remain subject to their own licenses, citation requirements and terms of use.
 

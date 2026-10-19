@@ -1,10 +1,14 @@
 ﻿# Data and Code Availability
 
-This repository provides the analysis scripts and small analysis-ready input tables required for the included analysis modules. The repository is intended for method-level reproduction of the code-supported analyses, including input handling, parameter choices, statistical procedures and figure/table generation.
+This repository provides the analysis scripts and analysis-ready input tables required for the included analysis modules, together with figure-linked phylogenetic alignments and tree files. The repository is intended for method-level reproduction of the code-supported analyses, including input handling, parameter choices, statistical procedures and figure/table generation.
 
 ## Included Analysis Inputs
 
 Input files are stored in the `input/` directory of each workflow. These files are curated, analysis-ready tables containing the fields required by the corresponding scripts. When a workflow uses a small table produced by an upstream step, that table is copied into the downstream `input/` directory and its provenance is described in the workflow README. This keeps each workflow locally runnable while preserving the upstream relationship.
+
+## Phylogenetic Alignments and Trees
+
+[`08_phylogenetic_alignments_and_trees/`](08_phylogenetic_alignments_and_trees/) contains 60 paired datasets: 60 FASTA alignment files (`.fasta`) and 60 Newick tree files (`.treefile`), totaling 91,642,323 bytes. Files are organized by Figures 4–5 and Supplementary Figures 1, 6–22 and 24. Original figure directories, filenames and file contents are preserved. The [module README](08_phylogenetic_alignments_and_trees/README.md) describes the figure mapping and shared datasets; the [file manifest](08_phylogenetic_alignments_and_trees/file_manifest.tsv) lists every pair and its file sizes. The archive is available directly from this repository and is outside the Python and R batch workflows.
 
 ## Generated Outputs
 
@@ -12,7 +16,7 @@ Scripts write generated figures, model summaries, diagnostic tables and intermed
 
 ## Public Data and Documentation License
 
-Public analysis-ready input tables, README files and method documentation included in this repository are released under the Creative Commons Attribution 4.0 International License (CC BY 4.0), unless otherwise noted. See `DATA_LICENSE.md` for scope and attribution details.
+Public analysis-ready input tables, author-created phylogenetic trees and alignment compilations, README files and method documentation included in this repository are released under the Creative Commons Attribution 4.0 International License (CC BY 4.0), unless otherwise noted. Reference sequences retain their original attribution and terms. See `DATA_LICENSE.md` for scope and attribution details.
 
 This public license does not apply to precise cave roost coordinates, sensitive locality information, controlled-access raw data, unreleased primary data or third-party materials that are not included in this repository.
 
