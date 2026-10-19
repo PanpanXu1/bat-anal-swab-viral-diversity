@@ -47,6 +47,8 @@ No GPU or other non-standard hardware is required. Scripts with Ubuntu runtime m
 
 The two distance-decay scripts were tested on Windows 11 on 16 October 2026 using Python 3.12.14, NumPy 2.5.4, pandas 3.0.1 and Matplotlib 3.11.2. Both scripts completed 9,999 sampling-group label permutations using the included input tables. Verification covered all five distance subsets and agreement of the observed correlations with the supplied results.
 
+The host-taxonomy sharing script was verified on Windows on 19 October 2026 using the included inputs (40 host species and 780 unique nonself pairs). The one-sided Mann–Whitney U tests use tie-adjusted variances and a continuity correction. The Family and Genus P values agree with Supplementary Table 6 to its reported precision and were independently checked against R's `wilcox.test`.
+
 ## Running the Workflows
 
 Core workflows include analysis-ready input data, executable scripts, workflow-specific instructions, and expected outputs. The VIF < 5 sensitivity workflow uses the saved inputs from workflow 06 to verify its predictor selection sequence.
