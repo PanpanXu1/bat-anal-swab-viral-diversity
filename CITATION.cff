@@ -10,7 +10,7 @@ authors:
     given-names: Zhiqiang
     email: zqwu_lab@163.com
 license: MIT
-date-released: 2026-07-17
+date-released: 2026-10-19
 url: "https://github.com/PanpanXu1/bat-anal-swab-viral-diversity"
 abstract: "Reproducible code, analysis-ready data, and figure-linked phylogenetic alignments and trees for bat anal-swab viral diversity, host-virus sharing, environmental associations, and host-level prioritization for bat coronavirus surveillance."
 keywords:
