@@ -12,7 +12,7 @@ This archive contains the supplied sequence alignments and phylogenetic trees as
 | [Sfigure6/](Sfigure6/) | Cluster-specific datasets | 11 |
 | [Sfigure7/](Sfigure7/) | Alphatetraviridae, Hepeviridae, Lispiviridae, Mymonaviridae, Paramyxoviridae, Phasmaviridae and Phenuiviridae | 7 |
 | [Sfigure8/](Sfigure8/) | Rhabdoviridae | 1 |
-| [Sfigure9/](Sfigure9/) | Flaviviridae and Rotavirus A | 2 |
+| [Sfigure9/](Sfigure9/) | Amarillovirales and Rotavirus A | 2 |
 | [Sfigure10/](Sfigure10/) | Merbecovirus | 1 |
 | [Sfigure11/](Sfigure11/) | Sarbecovirus | 1 |
 | [Sfigure12/](Sfigure12/) | Coronavirus whole genome | 1 |
@@ -32,7 +32,7 @@ The [file manifest](file_manifest.tsv) lists every alignment/tree pair, its rela
 
 ## File Organization and Formats
 
-Figure directories and original filenames are preserved. Files with the same stem form a supplied alignment/tree pair:
+Files are organized by figure directory and named by dataset. Files with the same stem form a supplied alignment/tree pair:
 
 - `.fasta`: sequence alignment in FASTA format.
 - `.treefile`: phylogenetic tree in Newick format.
